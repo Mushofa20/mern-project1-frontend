@@ -27,46 +27,62 @@ const sliderRef = useRef(null);
   const [currentNumber2, setCurrentNumber2] = useState(0);
   const [currentNumber3, setCurrentNumber3] = useState(0);
   const [currentNumber4, setCurrentNumber4] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
-  const { ref: refIntro, inView: inViewIntro } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-  const { ref: refAbout, inView: inViewAbout } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  const inViewRefs = {
+    intro: useInView({ threshold: 0.5, triggerOnce: true }),
+    about: useInView({ threshold: 0.5, triggerOnce: true }),
+    services: useInView({ threshold: 0.5, triggerOnce: true }),
+    count: useInView({ threshold: 0.5, triggerOnce: true }),
+    menu: useInView({ threshold: 0.5, triggerOnce: true }),
+    product: useInView({ threshold: 0.5, triggerOnce: true }),
+    gallery: useInView({ threshold: 0.5, triggerOnce: true }),
+    testimony: useInView({ threshold: 0.5, triggerOnce: true })
+  };
 
-  const { ref: refServices, inView: inViewServices } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const { ref: refIntro, inView: inViewIntro } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
-  const { ref: refCount, inView: inViewCount } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const { ref: refAbout, inView: inViewAbout } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
-  const { ref: refMenu, inView: inViewMenu } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  })
+  // const { ref: refServices, inView: inViewServices } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
-  const { ref: refProduct, inView: inViewProduct } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const { ref: refCount, inView: inViewCount } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
-  const { ref: refGallery, inView: inViewGallery } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const { ref: refMenu, inView: inViewMenu } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // })
 
-  const { ref: refTestimony, inView: inViewTestimony } = useInView ({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const { ref: refProduct, inView: inViewProduct } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
+
+  // const { ref: refGallery, inView: inViewGallery } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
+
+  // const { ref: refTestimony, inView: inViewTestimony } = useInView ({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
   const sliderSettings = {
     dots: true,
@@ -117,6 +133,8 @@ const sliderRef = useRef(null);
       background: "url('/assets/menu-4.jpg')",
     },
   ];
+
+  const { ref: countRef, inView: inViewCount } = inViewRefs.count;
 
   const animateNumber = (targetNumber, setCurrentNumber) => {
     const start = 0;
@@ -236,7 +254,7 @@ const sliderRef = useRef(null);
           <div className="wrap d-md-flex align-items-xl-end">
             <div className="info">
               <div className="row no-gutters">
-                <div ref={refIntro} className={`col-md-4 d-flex ftco-animate ${inViewIntro ? "fadeInUp ftco-animated" : ""}`}>
+                <div ref={isClient ? inViewRefs.intro.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                   <div className="icon"><span className="icon-phone"></span></div>
                     <div className="text">
                       <h3>000 (123) 456 7890</h3>
@@ -245,7 +263,7 @@ const sliderRef = useRef(null);
                       </p>
                     </div>
                 </div>
-                <div ref={refIntro} className={`col-md-4 d-flex ftco-animate ${inViewIntro ? "fadeInUp ftco-animated" : ""}`}>
+                <div ref={isClient ? inViewRefs.intro.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                   <div className="icon"><span className="icon-my_location"></span></div>
                     <div className="text">
                       <h3>198 West 21th Street</h3>
@@ -254,7 +272,7 @@ const sliderRef = useRef(null);
                       </p>
                     </div>
                 </div>
-                <div ref={refIntro} className={`col-md-4 d-flex ftco-animate ${inViewIntro ? "fadeInUp ftco-animated" : ""}`}>
+                <div ref={isClient ? inViewRefs.intro.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                   <div className="icon"><span className="icon-clock-o"></span></div>
                     <div className="text">
                       <h3>Open Monday - Friday</h3>
@@ -308,9 +326,9 @@ const sliderRef = useRef(null);
       </section>
       <section className="ftco-about d-md-flex">
         <div className="one-half img" style={{backgroundImage: `url(${imageAbout})`}}></div>
-        <div ref={refAbout} className={`one-half ftco-animate ${inViewAbout ? "fadeInUp ftco-animated" : ""}`}>
+        <div ref={isClient ? inViewRefs.about.ref : null} className={`one-half ftco-animate ${isClient && inViewRefs.about.inView ? "fadeInUp ftco-animated" : ""}`}>
           <div className="overlap">
-            <div ref={refAbout} className={`heading-section ftco-animate ${inViewAbout ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.about.ref : null} className={`heading-section ftco-animate ${isClient && inViewRefs.about.inView ? "fadeInUp ftco-animated" : ""}`}>
               <span className="subheading">Discover</span>
               <h2 className="mb-4">Our Story</h2>
             </div>
@@ -323,7 +341,7 @@ const sliderRef = useRef(null);
       <section className="ftco-section ftco-services">
         <div className="custom-container">
           <div className="row">
-            <div ref={refServices} className={`col-md-4 ftco-animate ${inViewServices ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.services.ref : null} className={`col-md-4 ftco-animate ${isClient && inViewRefs.services.inView ? "fadeInUp ftco-animated" : ""}`}>
               <div className="media d-block text-center block-6 services">
                 <div className="icon d-flex justify-content-center align-items-center mb-5">
                   <span className="flaticon-choices"></span>
@@ -334,7 +352,7 @@ const sliderRef = useRef(null);
                 </div>
               </div>
             </div>
-            <div ref={refServices} className={`col-md-4 ftco-animate ${inViewServices ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.services.ref : null} className={`col-md-4 ftco-animate ${isClient && inViewRefs.services.inView ? "fadeInUp ftco-animated" : ""}`}>
               <div className="media d-block text-center block-6 services">
                 <div className="icon d-flex justify-content-center align-items-center mb-5">
                   <span className="flaticon-delivery-truck"></span>
@@ -345,7 +363,7 @@ const sliderRef = useRef(null);
                 </div>
               </div>
             </div>
-            <div ref={refServices} className={`col-md-4 ftco-animate ${inViewServices ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.services.ref : null} className={`col-md-4 ftco-animate ${isClient && inViewRefs.services.inView ? "fadeInUp ftco-animated" : ""}`}>
               <div className="media d-block text-center block-6 services">
                 <div className="icon d-flex justify-content-center align-items-center mb-5">
                   <span className="flaticon-coffee-bean"></span>
@@ -363,7 +381,7 @@ const sliderRef = useRef(null);
         <div className="custom-container">
           <div className="row align-items-center">
             <div className="col-md-6 pr-md-5">
-              <div ref={refMenu} className={`heading-section text-md-right ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.menu.ref : null} className={`heading-section text-md-right ftco-animate ${isClient && inViewRefs.menu.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <span className="subheading">Discover</span>
                 <h2 className="mb-4">Our Menu</h2>
                 <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
@@ -397,7 +415,7 @@ const sliderRef = useRef(null);
         <div className="row justify-content-center">
           <div className="col-md-10">
             <div className="row">
-              <div ref={refCount} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCount ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.count.ref : null } className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="block-18 text-center">
                   <div className="text">
                     <div className="icon"><span className="flaticon-coffee-cup"></span></div>
@@ -406,7 +424,7 @@ const sliderRef = useRef(null);
                   </div>
                 </div>
               </div>
-              <div ref={refCount} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCount ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.count.ref : null } className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="block-18 text-center">
                   <div className="text">
                     <div className="icon"><span className="flaticon-coffee-cup"></span></div>
@@ -415,7 +433,7 @@ const sliderRef = useRef(null);
                   </div>
                 </div>
               </div>
-              <div ref={refCount} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCount ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.count.ref : null } className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="block-18 text-center">
                   <div className="text">
                     <div className="icon"><span className="flaticon-coffee-cup"></span></div>
@@ -424,7 +442,7 @@ const sliderRef = useRef(null);
                   </div>
                 </div>
               </div>
-              <div ref={refCount} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCount ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.count.ref : null } className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewRefs.intro.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="block-18 text-center">
                   <div className="text">
                     <div className="icon"><span className="flaticon-coffee-cup"></span></div>
@@ -442,7 +460,7 @@ const sliderRef = useRef(null);
       <section className="ftco-section">
         <div className="custom-container">
           <div className="row justify-content-center mb-5 pb-3">
-            <div ref={refProduct} className={`col-md-7 heading-section text-center ftco-animate ${inViewProduct ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.product.ref : null} className={`col-md-7 heading-section text-center ftco-animate ${isClient && inViewRefs.product.inView ? "fadeInUp ftco-animated" : ""}`}>
               <span className="subheading">Discover</span>
               <h2 className="mb-4">Best Coffee Sellers</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -477,28 +495,28 @@ const sliderRef = useRef(null);
       <section className="ftco-gallery">
         <div className="custom-container-wrap">
           <div className="row no-gutters">
-            <div ref={refGallery} className={`col-md-3 ftco-animate ${inViewGallery ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.gallery.ref : null} className={`col-md-3 ftco-animate ${isClient && inViewRefs.gallery.inView ? "fadeInUp ftco-animated" : ""}`}>
               <a href="/" className="gallery img d-flex align-items-center" style={{backgroundImage: 'url(/assets/gallery-1.jpg)'}}>
                 <div className="icon mb-4 d-flex align-items-center justify-content-center">
                   <span className="icon-search"></span>
                 </div>
               </a>
             </div>
-            <div ref={refGallery} className={`col-md-3 ftco-animate ${inViewGallery ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.gallery.ref : null} className={`col-md-3 ftco-animate ${isClient && inViewRefs.gallery.inView ? "fadeInUp ftco-animated" : ""}`}>
               <a href="/" className="gallery img d-flex align-items-center" style={{backgroundImage: 'url(/assets/gallery-2.jpg)'}}>
                 <div className="icon mb-4 d-flex align-items-center justify-content-center">
                   <span className="icon-search"></span>
                 </div>
               </a>
             </div>
-            <div ref={refGallery} className={`col-md-3 ftco-animate ${inViewGallery ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.gallery.ref : null} className={`col-md-3 ftco-animate ${isClient && inViewRefs.gallery.inView ? "fadeInUp ftco-animated" : ""}`}>
               <a href="/" className="gallery img d-flex align-items-center" style={{backgroundImage: 'url(/assets/gallery-3.jpg)'}}>
                 <div className="icon mb-4 d-flex align-items-center justify-content-center">
                   <span className="icon-search"></span>
                 </div>
               </a>
             </div>
-            <div ref={refGallery} className={`col-md-3 ftco-animate ${inViewGallery ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.gallery.ref : null} className={`col-md-3 ftco-animate ${isClient && inViewRefs.gallery.inView ? "fadeInUp ftco-animated" : ""}`}>
               <a href="/" className="gallery img d-flex align-items-center" style={{backgroundImage: 'url(/assets/gallery-4.jpg)'}}>
                 <div className="icon mb-4 d-flex align-items-center justify-content-center">
                   <span className="icon-search"></span>
@@ -520,7 +538,7 @@ const sliderRef = useRef(null);
         <div className="overlay"></div>
         <div className="custom-container">
           <div className="row justify-content-center mb-5">
-            <div ref={refTestimony} className={`col-md-7 heading-section text-center ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={isClient ? inViewRefs.testimony.ref : null} className={`col-md-7 heading-section text-center ftco-animate ${isClient && inViewRefs.testimony.inView ? "fadeInUp ftco-animated" : ""}`}>
               <span className="subheading">Testimony</span>
               <h2 className="mb-4">Customers Says</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -530,7 +548,7 @@ const sliderRef = useRef(null);
         <div className="custom-container-wrap">
           <div className="row d-flex no-gutters">
           {testimony.map((testimony) => (
-              <div ref={refTestimony} className={`col-md-3 align-self-sm-end ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
+              <div ref={isClient ? inViewRefs.testimony.ref : null} className={`col-md-3 align-self-sm-end ftco-animate ${isClient && inViewRefs.testimony.inView ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="testimony">
                   <blockquote>
                     <p>&ldquo;{testimony.review}&rdquo;</p>

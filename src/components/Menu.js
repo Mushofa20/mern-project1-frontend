@@ -8,26 +8,38 @@ const Menu = () => {
     const [activeTab, setActiveTab] = useState('drink');
     const [products, setProducts] = useState([]);
     const [dishAndMealProducts, setDishAndMealProducts] = useState([]); // Produk dish dan meal
+    const [isClient, setIsClient] = useState(false);
 
-    const {ref: refHome, inView: inViewHome} = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
-    const { ref: refInfo, inView: inViewInfo } = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+    const inViewRefs = {
+        home: useInView ({ threshold: 0.5, triggerOnce: true }),
+        info: useInView ({ threshold: 0.5, triggerOnce: true }),
+        price: useInView ({ threshold: 0.5, triggerOnce: true }),
+        menu: useInView ({ threshold: 0.5, triggerOnce: true })
+    }
 
-    const { ref: refPrice, inView: inViewPrice } = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+    // const {ref: refHome, inView: inViewHome} = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
 
-    const { ref: refMenu, inView: inViewMenu } = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+    // const { ref: refInfo, inView: inViewInfo } = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
+
+    // const { ref: refPrice, inView: inViewPrice } = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
+
+    // const { ref: refMenu, inView: inViewMenu } = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
 
     //fetch data produk
     useEffect(() => {
@@ -76,7 +88,7 @@ const Menu = () => {
                 <div className="overlay"></div>
                 <div className="custom-container">
                     <div className="row slider-text justify-content-center align-items-center">
-                        <div ref={refHome} className={`col-md-7 col-sm-12 text-center ftco-animate ${inViewHome ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={isClient ? inViewRefs.home.ref : null} className={`col-md-7 col-sm-12 text-center ftco-animate ${isClient && inViewRefs.home.inView ? "fadeInUp ftco-animated" : ""}`}>
                             <h1 className='mb-3 mt-5 bread'>Our Menu</h1>
                             <p className='breadcrumbs'>
                                 <span className='mr-2'>
@@ -94,21 +106,21 @@ const Menu = () => {
                 <div className="wrap d-md-flex align-items-xl-end">
                     <div className="info">
                         <div className="row no-gutters">
-                            <div ref={refInfo} className={`col-md-4 d-flex ftco-animate ${inViewInfo ? "fadeInUp ftco-animated" : ""}`}>
+                            <div ref={isClient ? inViewRefs.info.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.info.inView ? "fadeInUp ftco-animated" : ""}`}>
                                 <div className="icon"><span className='icon-phone'></span></div>
                                 <div className="text">
                                     <h3>000 (123) 456 7890</h3>
                                     <p>A small river named Duden flows by their place and supplies.</p>
                                 </div>
                             </div>
-                            <div ref={refInfo} className={`col-md-4 d-flex ftco-animate ${inViewInfo ? "fadeInUp ftco-animated" : ""}`}>
+                            <div ref={isClient ? inViewRefs.info.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.info.inView ? "fadeInUp ftco-animated" : ""}`}>
                                 <div className="icon"><span className='icon-my_location'></span></div>
                                 <div className="text">
                                     <h3>198 West 21th Street</h3>
                                     <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
                                 </div>
                             </div>
-                            <div ref={refInfo} className={`col-md-4 d-flex ftco-animate ${inViewInfo ? "fadeInUp ftco-animated" : ""}`}>
+                            <div ref={isClient ? inViewRefs.info.ref : null} className={`col-md-4 d-flex ftco-animate ${isClient && inViewRefs.info.inView ? "fadeInUp ftco-animated" : ""}`}>
                                 <div className="icon"><span className='icon-clock-o'></span></div>
                                 <div className="text">
                                     <h3>Open Monday - Friday</h3>
@@ -162,14 +174,14 @@ const Menu = () => {
             <div className="custom-container">
                 <div className="row">
                     <div className="col-md-6">
-                        <h3 ref={refPrice} className={`mb-5 heading-pricing ftco-animate ${inViewPrice ? "fadeInUp ftco-animated" : ""}`}>Dish</h3>
+                        <h3 ref={isClient ? inViewRefs.price.ref : null} className={`mb-5 heading-pricing ftco-animate ${isClient && inViewRefs.price.inView ? "fadeInUp ftco-animated" : ""}`}>Dish</h3>
                         {dishAndMealProducts
                         .filter((product) => product.type === "dish")
                         .map((dish) => (
                             <div 
                                 key={dish._id}
-                                ref={refPrice} 
-                                className={`pricing-entry d-flex ftco-animate ${inViewPrice ? "fadeInUp ftco-animated" : ""}`}
+                                ref={isClient ? inViewRefs.price.ref : null} 
+                                className={`pricing-entry d-flex ftco-animate ${isClient && inViewRefs.price.inView ? "fadeInUp ftco-animated" : ""}`}
                             >
                                 <div className="img" style={{backgroundImage: `url(${dish.image})`,}}></div>
                                 <div className="desc pl-3">
@@ -187,14 +199,14 @@ const Menu = () => {
                         ))}
                     </div>
                     <div className="col-md-6">
-                        <h3 ref={refPrice} className={`mb-5 heading-pricing ftco-animate ${inViewPrice ? "fadeInUp ftco-animated" : ""}`}>Meals</h3>
+                        <h3 ref={isClient ? inViewRefs.price.ref : null} className={`mb-5 heading-pricing ftco-animate ${isClient && inViewRefs.price.inView ? "fadeInUp ftco-animated" : ""}`}>Meals</h3>
                         {dishAndMealProducts
                         .filter((product) => product.type === "meal")
                         .map((meal) => (
                             <div
                                 key={meal._id}
-                                ref={refPrice}
-                                className={`pricing-entry d-flex ftco-animate ${inViewPrice ? "fadeInUp ftco-animated" : ""}`}
+                                ref={isClient ? inViewRefs.price.ref : null}
+                                className={`pricing-entry d-flex ftco-animate ${isClient && inViewRefs.price.inView ? "fadeInUp ftco-animated" : ""}`}
                             >
                                 <div className="img" style={{backgroundImage: `url(${meal.image})`,}}></div>
                                 <div className="desc pl-3">
@@ -217,17 +229,17 @@ const Menu = () => {
         <section className='ftco-menu mb-5 pb-5'>
             <div className="custom-container">
                 <div className="row justify-content-center mb-5">
-                    <div ref={refMenu} className={`col-md-7 heading-section text-center ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`}>
+                    <div ref={isClient ? inViewRefs.menu.ref : null} className={`col-md-7 heading-section text-center ftco-animate ${isClient && inViewRefs.menu.inView ? "fadeInUp ftco-animated" : ""}`}>
                         <span className='subheading'>Discover</span>
                         <h2 className='mb-4'>Our Products</h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     </div>
                 </div>
                 <div className="row d-md-flex">
-                    <div ref={refMenu} className={`col-lg-12 p-md-5 ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`}>
+                    <div ref={isClient ? inViewRefs.menu.ref : null} className={`col-lg-12 p-md-5 ftco-animate ${isClient && inViewRefs.menu.inView ? "fadeInUp ftco-animated" : ""}`}>
                         <div className="row">
                             <div className="col-md-12 nav-link-wrap mb-5">
-                                <div ref={refMenu} className={`nav nav-pills justify-content-center ftco-animate ${inViewMenu ? "fadeInUp ftco animated" : ""}`} id='v-pills-tab' role='tablist' aria-orientation='vertical'>
+                                <div ref={isClient ? inViewRefs.menu.ref : null} className={`nav nav-pills justify-content-center ftco-animate ${isClient && inViewRefs.menu.inView ? "fadeInUp ftco animated" : ""}`} id='v-pills-tab' role='tablist' aria-orientation='vertical'>
                                     <button className={`nav-link ${activeTab === 'drink' ? 'active' : ''}`} onClick={() => setActiveTab('drink')}>Drinks</button>
                                     <button className={`nav-link ${activeTab === 'dessert' ? 'active' : ''}`} onClick={() => setActiveTab('dessert')}>Dessert</button>
                                     {/* <a className='nav-link active' id='v-pills-2-tab' data-toggle="pill" href="#-pills-2" role='tab' aria-controls='v-pills-2' aria-selected="false">Drinks</a>
@@ -235,7 +247,7 @@ const Menu = () => {
                                 </div>
                             </div>
                             <div className="col-md-12 d-flex align-items-center">
-                                <div ref={refMenu} className={`tab-content ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`} id='v-pills-tabContent'>
+                                <div ref={isClient ? inViewRefs.menu.ref : null} className={`tab-content ftco-animate ${isClient && inViewRefs.menu.inView ? "fadeInUp ftco-animated" : ""}`} id='v-pills-tabContent'>
                                     <div className="tab-pane fade show active" id='v-pills-2' role='tabpanel' aria-labelledby='v-pills-2-tab'>
                                         <div className="row">
                                             {products.map((product) => (

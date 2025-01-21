@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import { Form, Button } from 'react-bootstrap';
 
 const Contact = () => {
-    const { ref: refBanner, inView: inViewBanner } = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
-    const { ref: refContact, inView: inViewContact } = useInView ({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    const inViewRefs = {
+        banner: useInView({ threshold: 0.5, triggerOnce: true }),
+        contact: useInView({ threshold: 0.5, triggerOnce: true }),
+    }
+
+    // const { ref: refBanner, inView: inViewBanner } = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
+    // const { ref: refContact, inView: inViewContact } = useInView ({
+    //     threshold: 0.5,
+    //     triggerOnce: true,
+    // });
   return (
     <div>
         <ParallaxProvider>
@@ -26,7 +37,7 @@ const Contact = () => {
                     <div className="overlay"></div>
                     <div className="custom-container">
                         <div className="row slider-text justify-content-center align-items-center">
-                            <div ref={refBanner} className={`col-md-7 col-sm-12 text-center ftco-animate ${inViewBanner ? "fadeInUp ftco-animated" : ""}`}>
+                            <div ref={isClient ? inViewRefs.banner.ref : null} className={`col-md-7 col-sm-12 text-center ftco-animate ${isClient && inViewRefs.banner.inView ? "fadeInUp ftco-animated" : ""}`}>
                                 <h1 className="mb-3 mt-5 bread">Contact Us</h1>
                                 <p className='breadcrumbs'>
                                     <span className='mr-2'>
@@ -44,7 +55,7 @@ const Contact = () => {
             <section className='ftco-section contact-section'>
                 <div className="custom-container mt-5">
                     <div className="row block-9">
-                        <div ref={refContact} className={`col-md-4 contact-info ftco-animate ${inViewContact ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={isClient ? inViewRefs.contact.ref : null} className={`col-md-4 contact-info ftco-animate ${isClient && inViewRefs.contact.inView ? "fadeInUp ftco-animated" : ""}`}>
                             <div className="row">
                                 <div className="col-md-12 mb-4">
                                     <h2 className='h4'>Contact Information</h2>
@@ -73,7 +84,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="col-md-1"></div>
-                        <div ref={refContact} className={`col-md-6 ftco-animate ${inViewContact ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={isClient ? inViewRefs.contact.ref : null} className={`col-md-6 ftco-animate ${isClient && inViewRefs.contact.inView ? "fadeInUp ftco-animated" : ""}`}>
                             <Form className='contact-form'>
                                 <div className="row">
                                     <div className="col-md-6">
