@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'open-iconic/font/css/open-iconic-bootstrap.min.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import 'animate.css';
+import './animate.css';
 import './index.css';
 
 

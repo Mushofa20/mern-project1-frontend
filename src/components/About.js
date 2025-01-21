@@ -5,47 +5,32 @@ import { Link } from 'react-router-dom';
 import '../assets/flaticon/flaticon.css';
 
 const About = () => {
-    // const { ref: refBanner, inView: inViewBanner } = useInView ({
-    //     threshold: 0.5,
-    //     triggerOnce: true,
-    // });
-    // const { ref:refAbout, inView: inViewAbout } = useInView ({
-    //     threshold: 0.5,
-    //     triggerOnce: true,
-    // });
-    // const { ref: refTestimony, inView: inViewTestimony } = useInView ({
-    //     threshold: 0.5,
-    //     triggerOnce: true,
-    // });
-    // const { ref: refSection, inView: inViewSection } = useInView ({
-    //     threshold: 0.5,
-    //     triggerOnce: true,
-    // });
-    // const { ref: refCounter, inView: inViewCounter } = useInView ({
-    //     threshold: 0.5,
-    //     triggerOnce: true,
-    // });
+    const { ref: refBanner, inView: inViewBanner } = useInView ({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref:refAbout, inView: inViewAbout } = useInView ({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: refTestimony, inView: inViewTestimony } = useInView ({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: refSection, inView: inViewSection } = useInView ({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: refCounter, inView: inViewCounter } = useInView ({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
 
     //state number animation
     const [currentNumber1, setCurrentNumber1] = useState(0);
     const [currentNumber2, setCurrentNumber2] = useState(0);
     const [currentNumber3, setCurrentNumber3] = useState(0);
     const [currentNumber4, setCurrentNumber4] = useState(0);
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-    setIsClient(true);
-    }, []);
-
-    const inViewrefs = {
-        banner: useInView({ threshold: 0.5, triggerOnce:true }),
-        about: useInView({ threshold: 0.5, triggerOnce:true }),
-        testimony: useInView({ threshold: 0.5, triggerOnce:true }),
-        section: useInView({ threshold: 0.5, triggerOnce:true }),
-        counter: useInView({ threshold: 0.5, triggerOnce:true }),
-    };
-
-    const { ref: countRef, inView: inViewCounter } = inViewrefs.counter;
 
     const animateNumber = (targetNumber, setCurrentNumber) => {
         const start = 0;
@@ -91,7 +76,7 @@ const About = () => {
                 <div className="overlay"></div>
                 <div className="custom-container">
                     <div className="row slider-text justify-content-center align-items-center">
-                        <div ref={isClient ? inViewrefs.banner.ref : null} className={`col-md-7 col-sm-12 text-center ftco-animate ${isClient && inViewrefs.banner.inView ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={refBanner} className={`col-md-7 col-sm-12 text-center ftco-animate ${inViewBanner ? "fadeInUp ftco-animated" : ""}`}>
                             <h1 className='mb-3 mt-5 bread'>About Us</h1>
                             <p className='breadcrumbs'>
                                 <span className='mr2'>
@@ -108,9 +93,9 @@ const About = () => {
         </section>
         <section className='ftco-about d-md-flex'>
             <div className="one-half img" style={{backgroundImage: "url(assets/about.jpg)"}}></div>
-            <div ref={isClient ? inViewrefs.about.ref : null} className={`one-half ftco-animate ${isClient && inViewrefs.about.inView ? "fadeInUp ftco-animated" : ""}`}>
+            <div ref={refAbout} className={`one-half ftco-animate ${inViewAbout ? "fadeInUp ftco-animated" : ""}`}>
                 <div className="overlap">
-                    <div ref={isClient ? inViewrefs.about.ref : null} className={`heading-section ftco-animate ${isClient && inViewrefs.about.inView ? "fadeInUp ftco-animated" : ""}`}>
+                    <div ref={refAbout} className={`heading-section ftco-animate ${inViewAbout ? "fadeInUp ftco-animated" : ""}`}>
                         <span className='subheading'>Discover</span>
                         <h2 className='mb-4'>Our Story</h2>
                     </div>
@@ -130,7 +115,7 @@ const About = () => {
                 <div className="overlay"></div>
                 <div className="custom-container">
                     <div className="row justify-content-center mb-5">
-                        <div ref={isClient ? inViewrefs.testimony.ref : null} className={`col-md-7 heading-section text-center ftco-animate ${isClient && inViewrefs.testimony.inView ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={refTestimony} className={`col-md-7 heading-section text-center ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
                             <span className='subheading'>Testimony</span>
                             <h2 className='mb-4'>Customers Says</h2>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -139,7 +124,7 @@ const About = () => {
                 </div>
                 <div className="container-wrap">
                     <div className="row d-flex no-gutters">
-                        <div ref={isClient ? inViewrefs.testimony.ref : null} className={`col-md-3 align-self-sm-end ftco-animate ${isClient && inViewrefs.testimony.inView ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={refTestimony} className={`col-md-3 align-self-sm-end ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
                             <div className="testimony">
                                 <blockquote>
                                     <p>&ldquo;Review.&rdquo;</p>
@@ -157,7 +142,7 @@ const About = () => {
             <div className="custom-container">
                 <div className="row align-items-center">
                     <div className="col-md-6 pr-md-5">
-                        <div ref={isClient ? inViewrefs.section.ref : null} className={`heading-section text-md-right ftco-animate ${isClient && inViewrefs.section.inView ? "fadeInUp ftco-animated" : ""}`}>
+                        <div ref={refSection} className={`heading-section text-md-right ftco-animate ${inViewSection ? "fadeInUp ftco-animated" : ""}`}>
                             <span className='subheading'>Discover</span>
                             <h2 className='mb-4'>Our Menu</h2>
                             <p className='mb-4'>
@@ -208,7 +193,7 @@ const About = () => {
                     <div className="row justify-content-center">
                         <div className="col-md-10">
                             <div className="row">
-                                <div ref={isClient ? inViewrefs.counter.ref : null} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewrefs.counter.inView ? "fadeInUp ftco-animated" : ""}`}>
+                                <div ref={refCounter} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCounter ? "fadeInUp ftco-animated" : ""}`}>
                                     <div className="block-18 text-center">
                                         <div className="text">
                                             <div className="icon"><span className='flaticon-coffee-cup'></span></div>
@@ -217,7 +202,7 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div ref={isClient ? inViewrefs.counter.ref : null} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewrefs.counter.inView ? "fadeInUp ftco-animated" : ""}`}>
+                                <div ref={refCounter} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCounter ? "fadeInUp ftco-animated" : ""}`}>
                                     <div className="block-18 text-center">
                                         <div className="text">
                                             <div className="icon"><span className='flaticon-coffee-cup'></span></div>
@@ -226,7 +211,7 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div ref={isClient ? inViewrefs.counter.ref : null} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewrefs.counter.inView ? "fadeInUp ftco-animated" : ""}`}>
+                                <div ref={refCounter} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCounter ? "fadeInUp ftco-animated" : ""}`}>
                                     <div className="block-18 text-center">
                                         <div className="text">
                                             <div className="icon"><span className='flaticon-coffee-cup'></span></div>
@@ -235,7 +220,7 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div ref={isClient ? inViewrefs.counter.ref : null} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${isClient && inViewrefs.counter.inView ? "fadeInUp ftco-animated" : ""}`}>
+                                <div ref={refCounter} className={`col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate ${inViewCounter ? "fadeInUp ftco-animated" : ""}`}>
                                     <div className="block-18 text-center">
                                         <div className="text">
                                             <div className="icon"><span className='flaticon-coffee-cup'></span></div>
