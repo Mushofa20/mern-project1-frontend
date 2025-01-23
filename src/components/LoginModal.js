@@ -16,7 +16,7 @@ const LoginModal = ({ show, handleClose, onLoginSuccess = () => {} }) => {
 
         try {
             console.log('Sending login request:', { email, password });
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('http://mern-project1-backend-production.up.railway.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
