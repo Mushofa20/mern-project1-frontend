@@ -122,8 +122,9 @@ const About = () => {
                 </div>
             </div>
         </section>
-        <section id='ftco-testimony'>
+        <section>
             <ParallaxBanner
+            id='ftco-testimony'
             className='ftco-section img'
             layers={[
                 { image: "/assets/bg_1.jpg", speed: -40, style: { backgroundSize: "contain"}}
