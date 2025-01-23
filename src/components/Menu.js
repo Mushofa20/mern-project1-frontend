@@ -34,12 +34,12 @@ const Menu = () => {
         const fetchProducts = async () => {
             //fetch data berdasarkan tab aktif
             try {
-                const response = await fetch(`mern-project1-backend-production.up.railway.app/api/products?type=${activeTab}`);
+                const response = await fetch(`https://mern-project1-backend-production.up.railway.app/api/products?type=${activeTab}`);
                 const data = await response.json();
                 setProducts(data);
 
             //fetch data produk meals dan dish
-            const dishAndMealResponse = await fetch(`mern-project1-backend-production.up.railway.app/api/products?type=dish,meal`);
+            const dishAndMealResponse = await fetch(`https://mern-project1-backend-production.up.railway.app/api/products?type=dish,meal`);
             const dishAndMealData = await dishAndMealResponse.json();
             setDishAndMealProducts(dishAndMealData);
             } catch (error) {
