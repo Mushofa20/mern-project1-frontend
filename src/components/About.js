@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import '../assets/flaticon/flaticon.css';
 
 const About = () => {
+
+    // State untuk menyimpan data review
+    const [testimony, setTestimony] = useState([]);
+    
     const { ref: refBanner, inView: inViewBanner } = useInView ({
         threshold: 0.5,
         triggerOnce: true,
@@ -62,6 +66,19 @@ const About = () => {
           animateNumber(900, setCurrentNumber4);
         }
       }, [inViewCounter]);
+    
+      useEffect (() => {
+          const fetchTestimony = async () => {
+              try {
+                const response = await fetch('https://mern-project1-backend-production.up.railway.app/api/testimony');
+                const data = await response.json();
+                setTestimony(data);
+              } catch (error) {
+                console.error('Error fetching testimony:', error);
+              }
+    };
+    fetchTestimony();
+    }, []);
 
   return (
     <div>
@@ -124,16 +141,16 @@ const About = () => {
                 </div>
                 <div className="container-wrap">
                     <div className="row d-flex no-gutters">
-                        <div ref={refTestimony} className={`col-md-3 align-self-sm-end ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
+                        {testimony.map((testimony) => (
+                          <div ref={refTestimony} className={`col-md-3 align-self-sm-end ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
                             <div className="testimony">
-                                <blockquote>
-                                    <p>&ldquo;Review.&rdquo;</p>
-                                </blockquote>
-                                <div className="author d-flex mt-4">
-                                    <div className="name align-self-center">Username</div>
-                                </div>
+                              <blockquote>
+                                <p>&ldquo;{testimony.review}&rdquo;</p>
+                              </blockquote>
+                              <div className="name align-self-center">{testimony.email.toLocaleString('id-ID')}</div>
                             </div>
-                        </div>
+                          </div>
+                        ))}
                     </div>
                 </div>
             </ParallaxBanner>
