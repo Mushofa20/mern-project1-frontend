@@ -139,7 +139,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container-wrap">
+                <div className="custom-container-wrap">
                     <div className="row d-flex no-gutters">
                         {testimony.map((testimony) => (
                           <div ref={refTestimony} className={`col-md-3 align-self-sm-end ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
