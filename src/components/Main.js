@@ -172,7 +172,7 @@ const sliderRef = useRef(null);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products?type=drink&status=best%20sellers'); // URL backend
+        const response = await fetch('mern-project1-backend-production.up.railway.app/api/products?type=drink&status=best%20sellers'); // URL backend
         const data = await response.json();
         setProducts(data); // Simpan data produk di state
       } catch (error) {
@@ -186,7 +186,7 @@ const sliderRef = useRef(null);
   useEffect(() => {
     const fetchTestimony = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/testimony');
+        const response = await fetch('mern-project1-backend-production.up.railway.app/api/testimony');
         const data = await response.json();
         setTestimony(data);
       } catch (error) {
