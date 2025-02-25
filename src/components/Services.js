@@ -50,7 +50,7 @@ const Services = () => {
                             </div>
                             <div className="media-body">
                                 <h3 className='heading'>Easy to Order</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const Services = () => {
                             </div>
                             <div className="media-body">
                                 <h3 className='heading'>Fastest Delivery</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ const Services = () => {
                             </div>
                             <div className="media-body">
                                 <h3 className='heading'>Quality Coffee</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                             </div>
                         </div>
                     </div>
