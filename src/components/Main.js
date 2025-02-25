@@ -87,19 +87,19 @@ const sliderRef = useRef(null);
       id: 1,
       background: "/assets/bg_1.jpg",
       title: "The Best Coffee Testing Experience",
-      description: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.",
     },
     {
       id: 2,
       background: "/assets/bg_2.jpg",
       title: "Amazing Taste & Beautiful Place",
-      description: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.",
     },
     {
       id: 3,
       background: "/assets/bg_3.jpg",
       title: "Creamy Hot and Ready to Serve",
-      description: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.",
     },
   ];
 
@@ -241,16 +241,16 @@ const sliderRef = useRef(null);
                     <div className="text">
                       <h3>000 (123) 456 7890</h3>
                       <p>
-                        A small river named Duden flows by their place and supplies.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.
                       </p>
                     </div>
                 </div>
                 <div ref={refIntro} className={`col-md-4 d-flex ftco-animate ${inViewIntro ? "fadeInUp ftco-animated" : ""}`}>
                   <div className="icon"><span className="icon-my_location"></span></div>
                     <div className="text">
-                      <h3>198 West 21th Street</h3>
+                      <h3>Jl. Xxxxx No. xx</h3>
                       <p>
-                        03 Fake St. Mountain View, San Francisco, California, USA
+                        xxxxxxxxxxx, Jawa Barat, Indonesia
                       </p>
                     </div>
                 </div>
@@ -315,7 +315,7 @@ const sliderRef = useRef(null);
               <h2 className="mb-4">Our Story</h2>
             </div>
             <div>
-              <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
             </div>
           </div>
         </div>
@@ -330,7 +330,7 @@ const sliderRef = useRef(null);
                 </div>
                 <div className="media-body">
                   <h3 className="heading">Easy to Order</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                 </div>
               </div>
             </div>
@@ -341,7 +341,7 @@ const sliderRef = useRef(null);
                 </div>
                 <div className="media-body">
                   <h3 className="heading">Fastest Delivery</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                 </div>
               </div>
             </div>
@@ -352,7 +352,7 @@ const sliderRef = useRef(null);
                 </div>
                 <div className="media-body">
                   <h3 className="heading">Quality Coffe</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                 </div>
               </div>
             </div>
@@ -366,7 +366,7 @@ const sliderRef = useRef(null);
               <div ref={refMenu} className={`heading-section text-md-right ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`}>
                 <span className="subheading">Discover</span>
                 <h2 className="mb-4">Our Menu</h2>
-                <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <p className="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                 <p><a href="/" className="btn btn-primary btn-outline-primary px-4 py-3">View Full Menu</a></p>
               </div>
             </div>
@@ -445,7 +445,7 @@ const sliderRef = useRef(null);
             <div ref={refProduct} className={`col-md-7 heading-section text-center ftco-animate ${inViewProduct ? "fadeInUp ftco-animated" : ""}`}>
               <span className="subheading">Discover</span>
               <h2 className="mb-4">Best Coffee Sellers</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
             </div>
           </div>
           <div className="row">
@@ -523,7 +523,7 @@ const sliderRef = useRef(null);
             <div ref={refTestimony} className={`col-md-7 heading-section text-center ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
               <span className="subheading">Testimony</span>
               <h2 className="mb-4">Customers Says</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
             </div>
           </div>
         </div>
