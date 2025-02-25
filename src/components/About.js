@@ -117,7 +117,7 @@ const About = () => {
                         <h2 className='mb-4'>Our Story</h2>
                     </div>
                     <div>
-                        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@ const About = () => {
                         <div ref={refTestimony} className={`col-md-7 heading-section text-center ftco-animate ${inViewTestimony ? "fadeInUp ftco-animated" : ""}`}>
                             <span className='subheading'>Testimony</span>
                             <h2 className='mb-4'>Customers Says</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                         </div>
                     </div>
                 </div>
@@ -164,7 +164,7 @@ const About = () => {
                             <span className='subheading'>Discover</span>
                             <h2 className='mb-4'>Our Menu</h2>
                             <p className='mb-4'>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.
                             </p>
                             <p>
                                 <Link to="/menu" className='btn btn-primary btn-outline-primary px-4 py-3' >View Full Menu</Link>
