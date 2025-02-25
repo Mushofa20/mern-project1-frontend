@@ -98,14 +98,14 @@ const Menu = () => {
                                 <div className="icon"><span className='icon-phone'></span></div>
                                 <div className="text">
                                     <h3>000 (123) 456 7890</h3>
-                                    <p>A small river named Duden flows by their place and supplies.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </div>
                             </div>
                             <div ref={refInfo} className={`col-md-4 d-flex ftco-animate ${inViewInfo ? "fadeInUp ftco-animated" : ""}`}>
                                 <div className="icon"><span className='icon-my_location'></span></div>
                                 <div className="text">
-                                    <h3>198 West 21th Street</h3>
-                                    <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+                                    <h3>Jl. Xxxxx No. xx</h3>
+                                    <p>Xxxxxxxxx, Xxxxxxx, Jawa Barat, Indonesia</p>
                                 </div>
                             </div>
                             <div ref={refInfo} className={`col-md-4 d-flex ftco-animate ${inViewInfo ? "fadeInUp ftco-animated" : ""}`}>
@@ -220,7 +220,7 @@ const Menu = () => {
                     <div ref={refMenu} className={`col-md-7 heading-section text-center ftco-animate ${inViewMenu ? "fadeInUp ftco-animated" : ""}`}>
                         <span className='subheading'>Discover</span>
                         <h2 className='mb-4'>Our Products</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut risus eget erat luctus aliquet.</p>
                     </div>
                 </div>
                 <div className="row d-md-flex">
