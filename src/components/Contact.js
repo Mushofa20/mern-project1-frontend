@@ -50,18 +50,18 @@ const Contact = () => {
                                     <h2 className='h4'>Contact Information</h2>
                                 </div>
                                 <div className="col-md-12 mb-3">
-                                    <p><span>Address:</span>198 West 21th Street, Suite 721 New York NY 10016</p>
+                                    <p><span>Address:</span>Jl. Xxxxxx No. xx</p>
                                 </div>
                                 <div className="col-md-12 mb-3">
                                     <p>
                                         <span>Phone: </span>
-                                        <Link to="tel://085320344238">+62 853 2034 4238</Link>
+                                        <Link to="tel://">+62 xxx xxxx xxxx</Link>
                                     </p>
                                 </div>
                                 <div className="col-md-12 mb-3">
                                     <p>
                                         <span>Email: </span>
-                                        <Link to="mailto:ahmadmushofasalsabil@gmail.com">ahmadmushofasalsabil@gmail.com</Link>
+                                        <Link to="mailto:ahmadmushofasalsabil@gmail.com">info@domain.com</Link>
                                     </p>
                                 </div>
                                 <div className="col-md-12 mb-3">
